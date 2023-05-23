@@ -46,6 +46,14 @@ Process and apply template using default values from the template and passing yo
 
 - `oc process -f rstudio-template.yaml -p NAME="application-name" -p USER="your-username" -p PASSWORD="your-password" | oc apply -f -`
 
+### Alternative
+
+- `oc create -f https://raw.githubusercontent.com/mdweisner/docker-stacks/master/examples/openshift/templates.json`
+
+To deploy a notebook from the command line using the template, run:
+
+- `oc new-app --template rstudio`
+
 ### Deleting application and project
 
 - `oc delete all -l app=rstudio`
