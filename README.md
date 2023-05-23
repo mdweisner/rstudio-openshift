@@ -52,7 +52,7 @@ Process and apply template using default values from the template and passing yo
 
 To deploy a notebook from the command line using the template, run:
 
-- `oc new-app --template rstudio`
+- `oc new-app --template rstudio -p NAME="application-name" -p USER="your-username" -p PASSWORD="your-password"`
 
 ### Deleting application and project
 
