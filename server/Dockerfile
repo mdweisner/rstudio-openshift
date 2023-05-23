@@ -2,7 +2,6 @@
 FROM rocker/tidyverse:4.0.2
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
-    nano=2.7.4-1 \
     nano \
     libcurl4-openssl-dev \
     openssh-client \
