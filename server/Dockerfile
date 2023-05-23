@@ -1,4 +1,20 @@
-FROM rocker/tidyverse:4.3
+#FROM rocker/tidyverse:4.3
+FROM rocker/tidyverse:4.0.2
+
+RUN apt-get update && apt-get install --no-install-recommends -y \
+    nano=2.7.4-1 \
+    nano \
+    libcurl4-openssl-dev \
+    openssh-client \
+    less \
+    htop \
+    procps \
+    net-tools \
+    rsync \
+    gdebi-core \
+    libxt-dev \
+    man-db && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY ./start.sh .
 RUN chmod +x start.sh
@@ -9,8 +25,8 @@ ENV TZ="America/New_York" \
     TINI_VERSION=v0.18.0 \
     APP_UID=999 \
     APP_GID=999 \
-    PKG_R_VERSION=4.3.0 \
-    PKG_RSTUDIO_VERSION=2023.03.1+446 \
+    PKG_R_VERSION=4.0.2 \
+    PKG_RSTUDIO_VERSION=1.3.1093 \
     PKG_SHINY_VERSION=1.5.7.907
 
 RUN apt-get -y update
