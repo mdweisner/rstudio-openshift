@@ -15,7 +15,7 @@ metadata:
     description: This template deploys RStudio Server with Shiny package.
     iconClass: fa fa-bar-chart
     openshift.io/display-name: RStudio
-    openshift.io/documentation-url: https://github.com/mdweisner/rstudio-openshift
+    openshift.io/documentation-url: https://github.com/CSCfi/rstudio-openshift
     openshift.io/support-url: https://www.csc.fi/contact-info
     openshift.io/long-description:
     openshift.io/provider-display-name: CSC
@@ -369,8 +369,7 @@ objects:
     source:
       type: Git
       git:
-        uri: https://github.com/mdweisner/rstudio-openshift.git
-        ref: ${SOURCE_REPOSITORY_REF}
+        uri: https://github.com/CSCfi/rstudio-openshift.git
       contextDir: server
     strategy:
       dockerStrategy:
@@ -505,8 +504,3 @@ parameters:
   name: APPLICATION_DOMAIN_SUFFIX
   required: true
   value: rahtiapp.fi
-- description: The branch of the source repository (master, dev). 
-  displayName: Source Repository Branch
-  name: SOURCE_REPOSITORY_REF
-  value: master
-  required: true
