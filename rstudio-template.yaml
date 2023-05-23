@@ -503,4 +503,4 @@ parameters:
   displayName: Application Hostname Suffix
   name: APPLICATION_DOMAIN_SUFFIX
   required: true
-  value: rahtiapp.fi
+  value: apps.rtc.hpc.nyu.edu
