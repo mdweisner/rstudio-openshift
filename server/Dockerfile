@@ -1,35 +1,10 @@
-#FROM rocker/tidyverse:4.3
-FROM rocker/tidyverse:4.0.2
-
-RUN apt-get update && apt-get install --no-install-recommends -y \
-    nano \
-    libcurl4-openssl-dev \
-    openssh-client \
-    less \
-    htop \
-    procps \
-    net-tools \
-    rsync \
-    gdebi-core \
-    libxt-dev \
-    man-db && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+FROM rocker/tidyverse:4.2.0
 
 COPY ./start.sh .
 RUN chmod +x start.sh
 
-# Setup various variables
-ENV TZ="America/New_York" \
-    HOME="/mnt/${NAME}-pvc" \
-    TINI_VERSION=v0.18.0 \
-    APP_UID=999 \
-    APP_GID=999 \
-    PKG_R_VERSION=4.0.2 \
-    PKG_RSTUDIO_VERSION=1.3.1093 \
-    PKG_SHINY_VERSION=1.5.7.907
-
 RUN apt-get -y update
-RUN apt-get install -y libnss-wrapper  gettext vim strace
+RUN apt-get install -y libnss-wrapper  gettext vim
 
 RUN apt-get install -y libudunits2-dev libgdal-dev libgeos-dev libproj-dev
 
@@ -50,9 +25,9 @@ RUN dpkg -i /tmp/shiny.deb && \
     mkdir -p /srv/shiny-server/ && \
     mkdir -p /var/log/shiny-server && \
     chown rstudio.rstudio /var/log/shiny-server && \
-    chmod go+w -R /var/log/shiny-server /usr/local/lib/R /srv /var/lib/shiny-server &&\
-    mkdir -p /var/log/rstudio-server &&\
-    chown rstudio.rstudio /var/log/rstudio-server &&\
+    chmod go+w -R /var/log/shiny-server /usr/local/lib/R /srv /var/lib/shiny-server && \
+    mkdir -p /var/log/rstudio-server && \
+    chown rstudio.rstudio /var/log/rstudio-server && \
     chmod go+w /var/log/rstudio-server
 
 COPY shiny-server.conf /etc/shiny-server/
