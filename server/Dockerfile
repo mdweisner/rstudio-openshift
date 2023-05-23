@@ -9,8 +9,8 @@ ENV TZ="America/New_York" \
     TINI_VERSION=v0.18.0 \
     APP_UID=999 \
     APP_GID=999 \
-    PKG_R_VERSION=4.0.2 \
-    PKG_RSTUDIO_VERSION=1.1.447 \
+    PKG_R_VERSION=4.3.0 \
+    PKG_RSTUDIO_VERSION=2023.03.1+446 \
     PKG_SHINY_VERSION=1.5.7.907
 
 RUN apt-get -y update
