@@ -1,10 +1,10 @@
-FROM docker-registry.default.svc:5000/cscfi/tidyverse:4.1.3
+FROM rocker/tidyverse:4.3
 
 COPY ./start.sh .
 RUN chmod +x start.sh
 
 # Setup various variables
-ENV TZ="Europe/Helsinki" \
+ENV TZ="America/New_York" \
     HOME="/mnt/${NAME}-pvc" \
     TINI_VERSION=v0.18.0 \
     APP_UID=999 \
