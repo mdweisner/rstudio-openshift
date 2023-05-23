@@ -456,7 +456,7 @@ objects:
     resources:
       requests:
         storage: ${STORAGE_SIZE}
-    storageClassName: glusterfs-storage
+    storageClassName: vastdata-filesystem
   status: {}
 - apiVersion: v1
   kind: PersistentVolumeClaim
@@ -468,7 +468,7 @@ objects:
     resources:
       requests:
         storage: ${STORAGE_SIZE_TMP}
-    storageClassName: glusterfs-storage
+    storageClassName: vastdata-filesystem
   status: {}
 
 
